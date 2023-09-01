@@ -27,8 +27,8 @@ module.exports = (schemaPath, interfaceName) => {
     // -------------------------------------------------
     if (attributeValue.type === 'relation') {
       tsType = attributeValue.target.includes('::user')
-        ? 'User'
-        : `${pascalCase(attributeValue.target.split('.')[1])}`;
+        ? 'TUser'
+        : `T${pascalCase(attributeValue.target.split('.')[1])}`;
       const tsImportPath = `../${tsType}`;
       if (tsImports.every((x) => x.path !== tsImportPath))
         tsImports.push({
@@ -45,8 +45,8 @@ module.exports = (schemaPath, interfaceName) => {
     else if (attributeValue.type === 'component') {
       tsType =
         attributeValue.target === 'plugin::users-permissions.user'
-          ? 'User'
-          : pascalCase(attributeValue.component.split('.')[1]);
+          ? 'TUser'
+          : 'T' + pascalCase(attributeValue.component.split('.')[1]);
       var tsImportPath = `./${tsType}`;
       if (tsImports.every((x) => x.path !== tsImportPath))
         tsImports.push({
@@ -61,8 +61,8 @@ module.exports = (schemaPath, interfaceName) => {
     // Media
     // -------------------------------------------------
     else if (attributeValue.type === 'media') {
-      tsType = 'Media';
-      const tsImportPath = '../Media';
+      tsType = 'TMedia';
+      const tsImportPath = '../TMedia';
       if (tsImports.every((x) => x.path !== tsImportPath))
         tsImports.push({
           type: tsType,

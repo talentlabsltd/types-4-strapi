@@ -26,7 +26,7 @@ const payloadTsInterface = `export type TPayload<T> = {
 }
 `;
 
-fs.writeFileSync(`${typesDir}/Payload.ts`, payloadTsInterface);
+fs.writeFileSync(`${typesDir}/TPayload.ts`, payloadTsInterface);
 
 // --------------------------------------------
 // User
@@ -46,7 +46,7 @@ const userTsInterface = `export type TUser = {
 }
 `;
 
-fs.writeFileSync(`${typesDir}/User.ts`, userTsInterface);
+fs.writeFileSync(`${typesDir}/TUser.ts`, userTsInterface);
 
 // --------------------------------------------
 // MediaFormat
@@ -65,7 +65,7 @@ var mediaFormatTsInterface = `export type TMediaFormat = {
 }
 `;
 
-fs.writeFileSync(`${typesDir}/MediaFormat.ts`, mediaFormatTsInterface);
+fs.writeFileSync(`${typesDir}/TMediaFormat.ts`, mediaFormatTsInterface);
 
 // --------------------------------------------
 // Media
@@ -95,7 +95,7 @@ export type TMedia = {
 }
 `;
 
-fs.writeFileSync(`${typesDir}/Media.ts`, mediaTsInterface);
+fs.writeFileSync(`${typesDir}/TMedia.ts`, mediaTsInterface);
 
 // --------------------------------------------
 // API Types
