@@ -40,8 +40,8 @@ const userTsInterface = `export interface User {
     provider: string;
     confirmed: boolean;
     blocked: boolean;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
   }
 }
 `;
@@ -89,8 +89,8 @@ export interface Media {
     url: string;
     previewUrl: string;
     provider: string;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
   }
 }
 `;
