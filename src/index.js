@@ -13,7 +13,7 @@ if (!fs.existsSync(typesDir)) fs.mkdirSync(typesDir);
 // Payload
 // --------------------------------------------
 
-const payloadTsInterface = `export interface Payload<T> {
+const payloadTsInterface = `export type TPayload<T> = {
   data: T;
   meta: {
     pagination?: {
@@ -32,7 +32,7 @@ fs.writeFileSync(`${typesDir}/Payload.ts`, payloadTsInterface);
 // User
 // --------------------------------------------
 
-const userTsInterface = `export interface User {
+const userTsInterface = `export type TUser = {
   id: number;
   attributes: {
     username: string;
@@ -52,7 +52,7 @@ fs.writeFileSync(`${typesDir}/User.ts`, userTsInterface);
 // MediaFormat
 // --------------------------------------------
 
-var mediaFormatTsInterface = `export interface MediaFormat {
+var mediaFormatTsInterface = `export type TMediaFormat = {
   name: string;
   hash: string;
   ext: string;
@@ -73,7 +73,7 @@ fs.writeFileSync(`${typesDir}/MediaFormat.ts`, mediaFormatTsInterface);
 
 var mediaTsInterface = `import { MediaFormat } from './MediaFormat';
 
-export interface Media {
+export type TMedia = {
   id: number;
   attributes: {
     name: string;

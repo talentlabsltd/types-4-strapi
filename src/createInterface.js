@@ -4,7 +4,7 @@ const { pascalCase, isOptional } = require('./utils');
 module.exports = (schemaPath, interfaceName) => {
   var tsImports = [];
   var tsInterface = `\n`;
-  tsInterface += `export interface ${interfaceName} {\n`;
+  tsInterface += `export type T${interfaceName} = {\n`;
   tsInterface += `  id: number;\n`;
   tsInterface += `  attributes: {\n`;
   var schemaFile;
@@ -134,7 +134,7 @@ module.exports = (schemaPath, interfaceName) => {
       attributeValue.type === 'datetime' ||
       attributeValue.type === 'time'
     ) {
-      tsPropertyType = 'Date';
+      tsPropertyType = 'string';
       tsProperty = `    ${attributeName}: ${tsPropertyType};\n`;
     }
     // -------------------------------------------------
@@ -160,6 +160,15 @@ module.exports = (schemaPath, interfaceName) => {
     tsInterface += `    locale: string;\n`;
     tsInterface += `    localizations?: { data: ${interfaceName}[] }\n`;
   }
+  // -------------------------------------------------
+  // Published at
+  // -------------------------------------------------
+  if (schema.options.draftAndPublish) {
+    tsInterface += `    publishedAt: string;\n`;
+    tsInterface += `    createdAt: string;\n`;
+    tsInterface += `    updatedAt: string;\n`;
+  }
+
   tsInterface += `  }\n`;
   tsInterface += '}\n';
   for (const tsImport of tsImports) {
