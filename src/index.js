@@ -71,7 +71,7 @@ fs.writeFileSync(`${typesDir}/TMediaFormat.ts`, mediaFormatTsInterface);
 // Media
 // --------------------------------------------
 
-var mediaTsInterface = `import { MediaFormat } from './MediaFormat';
+var mediaTsInterface = `import { TMediaFormat } from './TMediaFormat';
 
 export type TMedia = {
   id: number;
@@ -81,7 +81,7 @@ export type TMedia = {
     caption: string;
     width: number;
     height: number;
-    formats: { thumbnail: MediaFormat; medium: MediaFormat; small: MediaFormat; };
+    formats: { thumbnail: TMediaFormat; large?: TMediaFormat; medium?: TMediaFormat; small: TMediaFormat; };
     hash: string;
     ext: string;
     mime: string;
