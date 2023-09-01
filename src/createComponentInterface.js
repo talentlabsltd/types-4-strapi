@@ -4,7 +4,7 @@ const { pascalCase, isOptional } = require('./utils');
 module.exports = (schemaPath, interfaceName) => {
   var tsImports = [];
   var tsInterface = `\n`;
-  tsInterface += `export type T${interfaceName} = {\n`;
+  tsInterface += `export type ${interfaceName} = {\n`;
   tsInterface += `  id: number;\n`;
   var schemaFile;
   var schema;

@@ -110,7 +110,7 @@ try {
 
 if (apiFolders)
   for (const apiFolder of apiFolders) {
-    const interfaceName = pascalCase(apiFolder);
+    const interfaceName = 'T' + pascalCase(apiFolder);
     const interface = createInterface(
       `./src/api/${apiFolder}/content-types/${apiFolder}/schema.json`,
       interfaceName
@@ -140,7 +140,8 @@ if (componentCategoryFolders) {
       `./src/components/${componentCategoryFolder}`
     );
     for (const componentSchema of componentSchemas) {
-      const interfaceName = pascalCase(componentSchema.replace('.json', ''));
+      const interfaceName =
+        'T' + pascalCase(componentSchema.replace('.json', ''));
       const interface = createComponentInterface(
         `./src/components/${componentCategoryFolder}/${componentSchema}`,
         interfaceName
